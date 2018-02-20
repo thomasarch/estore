@@ -17,3 +17,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+.well {
+	height:220px; 
+	
+	& img {
+	max-height: 50px;
+	}
+}
