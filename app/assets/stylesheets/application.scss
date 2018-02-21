@@ -21,7 +21,19 @@
 .well {
 	height:220px; 
 	
-	& img {
-	max-height: 50px;
-	}
+	// & img {
+	// max-height: 50px;
+	// }
+}
+
+h4 {
+	color:#600;
+	display: inline;
+}
+
+.mywell {
+	background-color: #f9f9f9;
+	border-radius: 4px;
+	padding: 12px;
+	border: 1px solid #dddddd;
 }

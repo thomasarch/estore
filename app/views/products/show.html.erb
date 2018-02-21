@@ -1,19 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<div class="well">
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+<h1><%= @product.name %></h1>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @product.quantity %>
-</p>
+<%= image_tag @product.image.url, class: "img-responsive" %>
+
+Price:
+<h4><%= number_to_currency((@product.price * 0.01), :unit => "$") %></h4>
+
 
 <p>
   <strong>Description:</strong>
@@ -34,6 +29,8 @@
   <strong>Category:</strong>
   <%= @product.category_id %>
 </p>
+</div>
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
