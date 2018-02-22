@@ -48,6 +48,16 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
 
+        <li><%= link_to view_order_path do %>
+          <span class="glyphicon glyphicon-shopping-cart cart"></span>
+          
+            <% if @line_items.nil? == false %>
+                <span class="mybadge"><%= @line_items.count %></span>    
+            <% end %>
+          &nbsp;Cart
+          <% end %>
+        </li>
+
         <% if user_signed_in? %>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
@@ -59,11 +69,6 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-
-
-
-
 
   <body>
     <div class="container">
