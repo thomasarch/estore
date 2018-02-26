@@ -1,14 +1,54 @@
-<h2>Your Cart</h2>
+<br><br>
+<div class="inline"><h2>Your Cart</h2>
+	<i>&nbsp;<%= @line_items.count %> items</i>
+</div>
+<br><br><br>
+
+
+<% if @line_items.length == 0 %>
+    <p> Your cart is empty!</p>
+    <%= link_to 'Go back to products', "/" %>
+<% else %>
+            
 
 <div>
-  <% @line_items.each do |line_item| %>
-    <li><%= line_item.product.name %></li>
-    <li><%= number_to_currency (line_item.product.price * 0.01)%></li>
-    <li>Qty: <%= line_item.quantity %></li>
-    <li>Subtotal: <%= number_to_currency line_item.line_item_total %></li>
-  <% end %>
+    <table class="table">
+    	<thead>
+    		<tr>
+    			<th>item</th>
+    			<th>quantity</th>
+    			<th>price</th>
+    		</tr>
+    	</thead>
+
+    	<tbody>
+
+            <% @line_items.each do |line_item| %>
+    		<tr>
+    			<td>
+                <% if line_item.product.image.url.nil? == false %>
+          			<%= image_tag line_item.product.image.url, size: 80, class: "img-responsive inline" %>
+        		<% end %>
+                
+                    <h4><%= link_to line_item.product.name, line_item.product %></h4></td>
+                
+                <td><%= line_item.quantity %>
+                    <p><%= link_to "Remove", remove_path(line_item_id: line_item.id), method: :post %></p>
+                </td>
+    			
+                <td><strong><%= number_to_currency ((line_item.quantity * line_item.product.price) * 0.01)%></strong>
+                    <p>(<%= number_to_currency (line_item.product.price * 0.01) %> each)</p>
+                    
+                </td>
+    		</tr>
+    		<% end %>
+    	</tbody>
+    </table>
 </div>
 
+
 <div>
-  <%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success" %>
+  <%= link_to "Proceed to Checkout", checkout_path, class: "btn btn-success" %>
 </div>
+
+<% end %>

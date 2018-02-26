@@ -1,3 +1,41 @@
 // Place all the styles related to the Cart controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table * {
+	padding: 0px;
+	margin: 0px;
+}
+
+i {
+	font-size: 1.25em;
+	color: #999;
+}
+
+h4 {
+	
+	margin:0px 0px 0px 20px !important;
+	float: left;
+}
+
+.inline {
+	float:left;
+}
+
+th {
+	color:#888;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+.container {
+	max-width: 800px;
+}
+
+td {
+	padding:36px 0px 48px 0px !important;
+}
+
+strong {
+	font-size: 1.25em;
+}
